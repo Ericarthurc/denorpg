@@ -1,5 +1,5 @@
 import { roles, races, Roles, Races } from "./stats.ts";
-import { attacks } from "./attacks.ts";
+import { skillBook } from "./attacks.ts";
 
 function input(message = ""): string {
   const buf = new Uint8Array(1024);
@@ -25,24 +25,20 @@ class Player {
     this.attack = roles[_role].attack + races[_race].attack;
   }
 
-  public name;
-  public race;
-  public role;
+  private name;
+  private race;
+  private role;
   private health;
   private attack;
 
   public listSkills() {
-    attacks.forEach((skill) => {
-      if (skill.role == this.role) {
-        console.log(
-          `${skill.skillName.padEnd(10, " ")} [${skill.description}]`
-        );
-      }
+    skillBook[this.role].forEach((skill) => {
+      console.log(`${skill.skillName.padEnd(10, " ")} [${skill.description}]`);
     });
   }
 }
 
-const PlayerOne = new Player("Eric", "elf", "warrior");
+const PlayerOne = new Player("Eric", "elf", "wizard");
 
 console.log(PlayerOne);
 
