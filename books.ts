@@ -1,6 +1,6 @@
 import { Roles } from "./stats.ts";
 
-interface ISkill {
+export interface ISkill {
   id: number;
   role: Roles;
   skillName: string;

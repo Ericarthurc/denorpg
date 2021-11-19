@@ -1,19 +1,6 @@
+import { asyncInput } from "./helpers.ts";
 import { roles, races, Roles, Races } from "./stats.ts";
-import { skillBook } from "./attacks.ts";
-
-function input(message = ""): string {
-  const buf = new Uint8Array(1024);
-  Deno.stdout.writeSync(new TextEncoder().encode(`${message} `));
-  const n = <number>Deno.stdin.readSync(buf);
-  return new TextDecoder().decode(buf.subarray(0, n)).trim();
-}
-
-async function asyncInput(message = ""): Promise<string> {
-  const buf = new Uint8Array(1024);
-  await Deno.stdout.write(new TextEncoder().encode(`${message} `));
-  const n = <number>await Deno.stdin.read(buf);
-  return new TextDecoder().decode(buf.subarray(0, n)).trim();
-}
+import { skillBook, ISkill } from "./books.ts";
 
 class Player {
   constructor(_name: string, _race: Races, _role: Roles) {
@@ -30,6 +17,9 @@ class Player {
   private role;
   private health;
   private attack;
+  private skills: ISkill[] = [];
+
+  public addSkill(skillId: number) {}
 
   public listSkills() {
     skillBook[this.role].forEach((skill) => {
@@ -38,8 +28,12 @@ class Player {
   }
 }
 
-const PlayerOne = new Player("Eric", "elf", "wizard");
+const name: string = await asyncInput("Whats your name? ");
+const race: Races = await asyncInput("Whats your name? ");
+const role: Roles = await asyncInput("Whats your name? ");
 
-console.log(PlayerOne);
+// const PlayerOne = new Player("Eric", "elf", "wizard");
 
-PlayerOne.listSkills();
+// console.log(PlayerOne);
+
+// PlayerOne.listSkills();
