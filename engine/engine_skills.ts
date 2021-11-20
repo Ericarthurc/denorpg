@@ -6,6 +6,7 @@ export interface ISkill {
   skillName: string;
   description: string;
   damage: number;
+  levelRequirement: number;
   manaRequirement: number;
 }
 
@@ -17,6 +18,7 @@ export const skillDictionary: { [index in URoles]: ISkill[] | undefined } = {
       skillName: "Head Butt",
       description: "Swing your head forward with mighty force!",
       damage: 5,
+      levelRequirement: 0,
       manaRequirement: 5,
     },
     {
@@ -25,6 +27,7 @@ export const skillDictionary: { [index in URoles]: ISkill[] | undefined } = {
       skillName: "Slash",
       description: "Slash your weapon forward striking whats in front of you!",
       damage: 12,
+      levelRequirement: 1,
       manaRequirement: 8,
     },
   ],
@@ -35,6 +38,7 @@ export const skillDictionary: { [index in URoles]: ISkill[] | undefined } = {
       skillName: "Lightning Strike",
       description: "Lightning strikes from above!",
       damage: 12,
+      levelRequirement: 0,
       manaRequirement: 10,
     },
   ],

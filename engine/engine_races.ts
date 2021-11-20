@@ -19,7 +19,7 @@ export type URaces =
   | "undead"
   | "char"
   | "dwarf"
-  | "orcs";
+  | "orc";
 
 export const races: IRaces = {
   human: {
@@ -76,7 +76,7 @@ export const races: IRaces = {
     speed: 2,
     luck: 5,
   },
-  orcs: {
+  orc: {
     health: 17,
     mana: 8,
     attack: 10,
