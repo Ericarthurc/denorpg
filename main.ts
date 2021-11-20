@@ -49,25 +49,9 @@ export class Player {
   // }
 }
 
-// const name: string = await asyncInput("Whats your name? ");
-// const race: string = await asyncInput("Whats your race? ");
-// const role: string = await asyncInput("Whats your role? ");
-// console.log(name);
-// console.log(race);
-// console.log(role);
-
-// const PlayerOne = new Player("Eric", "elf", "wizard");
-
-// console.log(PlayerOne);
-
-// PlayerOne.listSkills();
-
-// const [race, role] = generateRandomPlayerRaceRole();
-// const BotOne = new Player("Botty", race, role);
-// console.log(BotOne);
-
-// console.log(rollDice(6));
-
 const PlayerOne = await playerCreation();
-
 console.log(PlayerOne);
+
+const [race, role] = generateRandomPlayerRaceRole();
+const BotOne = new Player("Botty", race, role);
+console.log(BotOne);
