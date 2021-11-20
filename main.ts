@@ -1,10 +1,10 @@
 import { asyncInput } from "./helpers.ts";
-import { roles, Roles } from "./engine/engine_roles.ts";
-import { races, Races } from "./engine/engine_races.ts";
+import { roles, rolesArray, URoles } from "./engine/engine_roles.ts";
+import { races, racesArray, URaces } from "./engine/engine_races.ts";
 import { skillDictionary, ISkill } from "./engine/engine_skills.ts";
 
 class Player {
-  constructor(_name: string, _race: Races, _role: Roles) {
+  constructor(_name: string, _race: URaces, _role: URoles) {
     this.name = _name;
     this.race = _race;
     this.role = _role;
@@ -40,8 +40,13 @@ class Player {
 // console.log(race);
 // console.log(role);
 
-const PlayerOne = new Player("Eric", "elf", "wizard");
+// const PlayerOne = new Player("Eric", "elf", "wizard");
 
-console.log(PlayerOne);
+// console.log(PlayerOne);
 
 // PlayerOne.listSkills();
+
+console.log("bye");
+
+console.log(rolesArray);
+console.log(racesArray);

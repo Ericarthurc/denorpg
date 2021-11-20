@@ -1,15 +1,15 @@
-import { Roles } from "./engine_roles.ts";
+import { URoles } from "./engine_roles.ts";
 
 export interface ISkill {
   id: number;
-  role: Roles;
+  role: URoles;
   skillName: string;
   description: string;
   damage: number;
   manaRequirement: number;
 }
 
-export const skillDictionary: { [index in Roles]: ISkill[] } = {
+export const skillDictionary: { [index in URoles]: ISkill[] | undefined } = {
   warrior: [
     {
       id: 1,
@@ -38,4 +38,8 @@ export const skillDictionary: { [index in Roles]: ISkill[] } = {
       manaRequirement: 10,
     },
   ],
+  ranger: undefined,
+  thief: undefined,
+  guardian: undefined,
+  necromancer: undefined,
 };
