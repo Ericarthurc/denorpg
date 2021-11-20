@@ -23,7 +23,7 @@ export class Player {
     this.speed = roles[_role].speed + races[_race].speed;
     this.luck = roles[_role].luck + races[_race].luck;
 
-    skillDictionary[_role]?.map((skill) => {
+    skillDictionary[_role].map((skill) => {
       if (skill.levelRequirement == 0) {
         this.skills.push(skill.id);
       }
