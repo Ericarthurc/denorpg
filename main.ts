@@ -22,6 +22,12 @@ export class Player {
     this.evade = roles[_role].evade + races[_race].evade;
     this.speed = roles[_role].speed + races[_race].speed;
     this.luck = roles[_role].luck + races[_race].luck;
+
+    skillDictionary[_role]?.map((skill) => {
+      if (skill.levelRequirement == 0) {
+        this.skills.push(skill.id);
+      }
+    });
   }
 
   private name;
@@ -37,9 +43,24 @@ export class Player {
   private speed;
   private luck;
 
-  private skills: Pick<ISkill, "id">[] = [];
+  private skills: number[] = [];
 
-  public addSkill(skillId: Pick<ISkill, "id">) {}
+  // public addSkill(skillId: Pick<ISkill, "id">) {}
+
+  public async useSkill() {
+    const ready = skillDictionary[this.role].filter((skill) =>
+      this.skills.includes(skill.id)
+    );
+    console.log(ready.map((skill) => skill.skillName));
+
+    // let pickedSkill = "";
+    // while (ready.map((skill) => skill.skillName == pickedSkill)) {
+    //   pickedSkill = await asyncInput("Pick a skill");
+    //   console.log(pickedSkill);
+    // }
+    // const prepSkill = ready.filter((skill) => skill.skillName == pickedSkill);
+    // console.log(`Using ${prepSkill}!`);
+  }
 
   public listSkills() {}
   // public listSkills() {
@@ -52,6 +73,7 @@ export class Player {
 const PlayerOne = await playerCreation();
 console.log(PlayerOne);
 
-const [race, role] = generateRandomPlayerRaceRole();
-const BotOne = new Player("Botty", race, role);
-console.log(BotOne);
+// const [race, role] = generateRandomPlayerRaceRole();
+// const BotOne = new Player("Botty", race, role);
+// console.log(BotOne);
+PlayerOne.useSkill();

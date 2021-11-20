@@ -10,7 +10,7 @@ export interface ISkill {
   manaRequirement: number;
 }
 
-export const skillDictionary: { [index in URoles]: ISkill[] | undefined } = {
+export const skillDictionary: { [index in URoles]: ISkill[] } = {
   warrior: [
     {
       id: 1,
@@ -27,7 +27,7 @@ export const skillDictionary: { [index in URoles]: ISkill[] | undefined } = {
       skillName: "Slash",
       description: "Slash your weapon forward striking whats in front of you!",
       damage: 12,
-      levelRequirement: 1,
+      levelRequirement: 0,
       manaRequirement: 8,
     },
   ],
@@ -42,8 +42,8 @@ export const skillDictionary: { [index in URoles]: ISkill[] | undefined } = {
       manaRequirement: 10,
     },
   ],
-  ranger: undefined,
-  thief: undefined,
-  guardian: undefined,
-  necromancer: undefined,
+  ranger: [],
+  thief: [],
+  guardian: [],
+  necromancer: [],
 };
