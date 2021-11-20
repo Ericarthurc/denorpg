@@ -1,5 +1,3 @@
-import { Roles, Races } from "./stats.ts";
-
 export function input(message = ""): string {
   const buf = new Uint8Array(1024);
   Deno.stdout.writeSync(new TextEncoder().encode(`${message} `));

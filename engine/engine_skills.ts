@@ -1,4 +1,4 @@
-import { Roles } from "./stats.ts";
+import { Roles } from "./engine_roles.ts";
 
 export interface ISkill {
   id: number;
@@ -6,9 +6,10 @@ export interface ISkill {
   skillName: string;
   description: string;
   damage: number;
+  manaRequirement: number;
 }
 
-export const skillBook: { [index in Roles]: ISkill[] } = {
+export const skillDictionary: { [index in Roles]: ISkill[] } = {
   warrior: [
     {
       id: 1,
@@ -16,6 +17,7 @@ export const skillBook: { [index in Roles]: ISkill[] } = {
       skillName: "Head Butt",
       description: "Swing your head forward with mighty force!",
       damage: 5,
+      manaRequirement: 5,
     },
     {
       id: 2,
@@ -23,6 +25,7 @@ export const skillBook: { [index in Roles]: ISkill[] } = {
       skillName: "Slash",
       description: "Slash your weapon forward striking whats in front of you!",
       damage: 12,
+      manaRequirement: 8,
     },
   ],
   wizard: [
@@ -32,6 +35,7 @@ export const skillBook: { [index in Roles]: ISkill[] } = {
       skillName: "Lightning Strike",
       description: "Lightning strikes from above!",
       damage: 12,
+      manaRequirement: 10,
     },
   ],
 };
