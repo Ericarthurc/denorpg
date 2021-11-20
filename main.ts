@@ -51,13 +51,14 @@ export class Player {
     const ready = skillDictionary[this.role].filter((skill) =>
       this.skills.includes(skill.id)
     );
-    console.log(ready.map((skill) => skill.skillName));
+    const skillNames = ready.map((skill) => skill.skillName);
+    console.log(skillNames);
 
-    // let pickedSkill = "";
-    // while (ready.map((skill) => skill.skillName == pickedSkill)) {
-    //   pickedSkill = await asyncInput("Pick a skill");
-    //   console.log(pickedSkill);
-    // }
+    let pickedSkill = "";
+    while (!skillNames.includes(pickedSkill)) {
+      pickedSkill = await asyncInput("Pick a skill:");
+      console.log(pickedSkill);
+    }
     // const prepSkill = ready.filter((skill) => skill.skillName == pickedSkill);
     // console.log(`Using ${prepSkill}!`);
   }
