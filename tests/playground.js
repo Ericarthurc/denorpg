@@ -1,20 +1,24 @@
-const roles = {
-  warrior: {
-    health: 100,
-    mana: 50,
-    attack: 10,
-    armor: 15,
-    evade: 5,
-    speed: 5,
-    luck: 5,
+const skills = [
+  {
+    id: 1,
+    skillName: "Head Butt",
+    description: "Swing your head forward with mighty force!",
+    damage: 5,
+    levelRequirement: 0,
+    manaRequirement: 5,
   },
-  wizard: {
-    health: 80,
-    mana: 100,
-    attack: 15,
-    armor: 5,
-    evade: 10,
-    speed: 8,
-    luck: 10,
+  {
+    id: 2,
+    skillName: "Slash",
+    description: "Slash your weapon forward striking whats in front of you!",
+    damage: 12,
+    levelRequirement: 0,
+    manaRequirement: 8,
   },
-};
+];
+
+const picked = "Slash";
+
+const selection = skills.filter((skill) => skill.skillName == picked);
+
+console.log(selection);

@@ -47,7 +47,6 @@ export class Player {
 
   // public addSkill(skillId: Pick<ISkill, "id">) {}
 
-  // deno-lint-ignore require-await
   public async useSkill() {
     const equipedSkills = skillDictionary[this.role].filter((skill) =>
       this.skills.includes(skill.id)
@@ -55,16 +54,22 @@ export class Player {
     const skillNames = equipedSkills.map((skill) => skill.skillName);
     console.log(skillNames);
 
+    console.log("[1]");
+
     let pickedSkill = "";
     while (!skillNames.includes(pickedSkill)) {
       pickedSkill = await asyncInput("Pick a skill:");
       console.log(pickedSkill);
     }
 
-    console.log("ATTACK!");
+    console.log("[2]");
 
-    // const prepSkill = ready.filter((skill) => skill.skillName == pickedSkill);
-    // console.log(`Using ${prepSkill}!`);
+    const selection = equipedSkills.filter(
+      (skill) => skill.skillName == pickedSkill
+    )[0];
+    console.log(selection);
+
+    console.log("[3]");
   }
 
   public listSkills() {}
