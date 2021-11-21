@@ -47,11 +47,12 @@ export class Player {
 
   // public addSkill(skillId: Pick<ISkill, "id">) {}
 
+  // deno-lint-ignore require-await
   public async useSkill() {
-    const ready = skillDictionary[this.role].filter((skill) =>
+    const equipedSkills = skillDictionary[this.role].filter((skill) =>
       this.skills.includes(skill.id)
     );
-    const skillNames = ready.map((skill) => skill.skillName);
+    const skillNames = equipedSkills.map((skill) => skill.skillName);
     console.log(skillNames);
 
     let pickedSkill = "";
@@ -59,6 +60,9 @@ export class Player {
       pickedSkill = await asyncInput("Pick a skill:");
       console.log(pickedSkill);
     }
+
+    console.log("ATTACK!");
+
     // const prepSkill = ready.filter((skill) => skill.skillName == pickedSkill);
     // console.log(`Using ${prepSkill}!`);
   }
@@ -73,8 +77,10 @@ export class Player {
 
 const PlayerOne = await playerCreation();
 console.log(PlayerOne);
+PlayerOne.useSkill();
+
+// console.log(skillDictionary["warrior"][1]);
 
 // const [race, role] = generateRandomPlayerRaceRole();
 // const BotOne = new Player("Botty", race, role);
 // console.log(BotOne);
-PlayerOne.useSkill();
